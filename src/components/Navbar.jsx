@@ -10,7 +10,7 @@ const Navbar = () => {
 
     return (
         <nav
-            className={`${styles.paddingX} w-full flex justify-between item-center py-5 fixed top-0 z-20 bg-primary`}
+            className={`${styles.paddingX} w-full flex  item-center py-5 fixed top-0 z-20 bg-primary`}
         >
             <div className="w-full flex justify-between items-center max-w-7xl mx-auto">
                 <Link
@@ -27,7 +27,7 @@ const Navbar = () => {
                     </p>
                 </Link>
 
-                <ul className="list-none hidden sm:flex flex-grow gap-10">
+                <ul className="list-none hidden sm:flex  gap-10">
                     {navLinks.map((link) => (
                         <li
                             className={`${active === link.title ? "text-white" : "text-secondary"
