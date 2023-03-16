@@ -1,9 +1,10 @@
 import { motion } from "framer-motion";
-
 import {styles} from "../style"
 import {SectionWrapper} from "../hoc"
 import { fadeIn, textVariant } from "../utils/motion";
 import {testimonials} from "../constants"
+
+console.log(testimonials);
 
 const FeedbackCard = ({index, testimonial, name, designation, company, image}) => (
   <motion.div
@@ -21,6 +22,8 @@ const FeedbackCard = ({index, testimonial, name, designation, company, image}) =
           </p>
           <p className="mt-1 text-secondary text-[12px]">{designation} of {company}</p>
         </div>
+
+        <img className="w-10 h-10 rounded-full object-cover" src={image} alt={`feedback-by${name}`} />
       </div>
     </div>
   </motion.div>
@@ -37,12 +40,12 @@ const Feedbacks = () => {
       </div>
 
       <div className={`${styles.paddingX} -mt-20 pb-14 flex flex-wrap gap-7`}>
-        {testimonials.map((testimonial, index) => {
-          <FeedbackCard key={testimonial.name} index={index} {...testimonials}/>
-        })}
+        {testimonials.map((testimonial, index) => (
+          <FeedbackCard key={testimonial.name} index={index} {...testimonial}/>
+        ))}
       </div>
     </div>
   )
 }
 
-export default  Feedbacks
+export default SectionWrapper(Feedbacks, "")
